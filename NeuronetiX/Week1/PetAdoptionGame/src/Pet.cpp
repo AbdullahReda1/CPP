@@ -1,3 +1,14 @@
+/**
+ * @file Pet.cpp
+ * @author Abdullah Reda
+ * @brief Contain the pet implementation
+ * @version 0.1
+ * @date 2024-08-23
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "Pet.hpp"
 #include <iostream>
 

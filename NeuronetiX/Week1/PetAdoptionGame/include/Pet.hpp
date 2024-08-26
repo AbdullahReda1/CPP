@@ -1,3 +1,14 @@
+/**
+ * @file Pet.hpp
+ * @author Abdullah Reda
+ * @brief Contain the pet class
+ * @version 0.1
+ * @date 2024-08-23
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #ifndef PET_HPP
 #define PET_HPP
 

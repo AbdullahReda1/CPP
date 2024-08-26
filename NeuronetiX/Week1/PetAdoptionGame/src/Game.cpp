@@ -1,3 +1,14 @@
+/**
+ * @file Game.cpp
+ * @author Abdullah Reda
+ * @brief Contain the the game implementation
+ * @version 0.1
+ * @date 2024-08-23
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "Game.hpp"
 #include <iostream>
 
