@@ -29,7 +29,7 @@ Game::~Game() { delete pet; }
  * @brief Starts the main game loop, which continues until the user decides to end the game.
  */
 void Game::start() {
-    
+
 }
 
 /**
@@ -38,24 +38,24 @@ void Game::start() {
  * @details Constant member method.
  */
 void Game::showMenu() const {
-    
+
 }
 
 /**
  * @fn void handleChoice(int choice)
- * @brief Handles the user's choice from the menu.
+ * @brief Executes the user's choice from the menu.
  * @param choice The option selected by the user.
  */
 void Game::handleChoice(int choice) {
-    
+
 }
 
 /**
  * @fn void adoptPet()
- * @brief Allows the user to adopt a pet by entering a name.
+ * @brief Allows the user to adopt a new pet by entering a name.
  */
 void Game::adoptPet() {
-    
+
 }
 
 /**
@@ -63,7 +63,7 @@ void Game::adoptPet() {
  * @brief Increases the hunger level of the adopted pet.
  */
 void Game::feedPet() {
-    
+
 }
 
 /**
@@ -71,7 +71,7 @@ void Game::feedPet() {
  * @brief Increases the happiness level of the adopted pet.
  */
 void Game::playWithPet() {
-    
+
 }
 
 /**
@@ -80,7 +80,7 @@ void Game::playWithPet() {
  * @details Constant member method.
  */
 void Game::checkStatus() const {
-    
+
 }
 
 /**
@@ -88,5 +88,5 @@ void Game::checkStatus() const {
  * @brief Ends the game and displays the final status of the pet.
  */
 void Game::endGame() {
-    
+
 }
