@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2024
  * 
  */
-
 #ifndef GAME_HPP
 #define GAME_HPP
 
