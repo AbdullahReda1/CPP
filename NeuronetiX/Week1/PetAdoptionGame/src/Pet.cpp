@@ -44,25 +44,34 @@ int Pet::getHappinessLevel() const { return happinessLevel; }
 
 /**
  * @fn void feed()
- * @brief Feeds the pet to increase its hunger level.
+ * @brief Feeds the pet, increasing its hunger level by 10, up to a maximum of 90.
  */
 void Pet::feed() {
-    
+    if (hungerLevel < 90) {
+        hungerLevel += 10;
+        std::cout << name << " has been fed.\n";
+    }
+    else { std::cout << name << " is already full.\n"; } 
 }
 
 /**
  * @fn void play()
- * @brief Plays with the pet to increase its happiness level.
+ * @brief Plays with the pet, increasing its happiness level by 10, up to a maximum of 90.
  */
 void Pet::play() {
-
+    if (happinessLevel < 90) {
+        happinessLevel += 10;
+        std::cout << name << " is happier now.\n";
+    }
+    else { std::cout << name << " is already too happy.\n"; } 
 }
 
 /**
  * @fn void checkStatus() const
- * @brief Displays the current status of the pet.
+ * @brief Displays the pet's current hunger and happiness levels.
  * @details Constant member method.
  */
 void Pet::checkStatus() const {
-
+    std::cout << name << "'s Hunger Level: "    << hungerLevel    << "\n";
+    std::cout << name << "'s Happiness Level: " << happinessLevel << "\n";
 }
