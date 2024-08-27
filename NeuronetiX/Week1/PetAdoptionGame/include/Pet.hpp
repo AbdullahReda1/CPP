@@ -22,7 +22,7 @@
 class Pet {
     
     private:
-        std::string name;           ///< Name of the pet
+        std::string name;                    ///< Name of the pet
         unsigned int hungerLevel;            ///< Hunger level of the pet (0-90)
         unsigned int happinessLevel;         ///< Happiness level of the pet (0-90)
 
