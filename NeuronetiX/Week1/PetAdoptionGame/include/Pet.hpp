@@ -23,8 +23,8 @@ class Pet {
     
     private:
         std::string name;           ///< Name of the pet
-        int hungerLevel;            ///< Hunger level of the pet (0-90)
-        int happinessLevel;         ///< Happiness level of the pet (0-90)
+        unsigned int hungerLevel;            ///< Hunger level of the pet (0-90)
+        unsigned int happinessLevel;         ///< Happiness level of the pet (0-90)
 
     public:
         /**
