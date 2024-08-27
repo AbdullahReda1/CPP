@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2024
  * 
  */
-#include "Game.hpp"
+#include "../include/Game.hpp"
 
 
 /**
@@ -16,6 +16,7 @@
  * @return Returns 0 upon successful execution.
  */
 int main() {
-
-    return 0;   // Exit the program
+    Game game;      // Create an instance of the Game class
+    game.start();   // Start the game
+    return 0;       // Exit the program
 }

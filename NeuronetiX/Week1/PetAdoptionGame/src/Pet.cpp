@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2024
  * 
  */
-#include "Pet.hpp"
+#include "../include/Pet.hpp"
 #include <iostream>
 
 

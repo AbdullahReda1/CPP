@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2024
  * 
  */
-#include "Game.hpp"
+#include "../include/Game.hpp"
 #include <iostream>
 
 
