@@ -16,7 +16,7 @@
  * @brief Constructs a new Pet object with the given name and default levels.
  * @param petName The name of the pet.
  */
-Pet::Pet(const std::string &petName): name(petName), hungerLevel(50), happinessLevel(50) {}
+Pet::Pet(const std::string &petName): name(petName), hungerLevel(50), happinessLevel(50), satiation(true), happiness(true) {}
 
 /**
  * @fn string getName() const
@@ -43,10 +43,31 @@ int Pet::getHungerLevel() const { return hungerLevel; }
 int Pet::getHappinessLevel() const { return happinessLevel; }
 
 /**
+* @fn bool getSatiationStatus() const
+* @brief Get the Satiation Status object.
+* @details Constant member method (getter function).
+* @return true 
+* @return false 
+*/
+bool Pet::getSatiationStatus() const { return satiation; }
+
+/**
+* @fn bool getHappinessStatus() const
+* @brief Get the Happiness Status object
+* @details Constant member method (getter function).
+* @return true 
+* @return false 
+*/
+bool Pet::getHappinessStatus() const { return happiness; }
+
+/**
  * @fn void feed()
  * @brief Feeds the pet, increasing its hunger level by 10, up to a maximum of 90.
  */
 void Pet::feed() {
+    happinessLevel -= 10;
+    if (0 == happinessLevel) { happiness = false; }
+
     if (hungerLevel < 90) {
         hungerLevel += 10;
         std::cout << name << " has been fed.\n";
@@ -59,6 +80,9 @@ void Pet::feed() {
  * @brief Plays with the pet, increasing its happiness level by 10, up to a maximum of 90.
  */
 void Pet::play() {
+    hungerLevel -= 10;
+    if (0 == hungerLevel) { satiation = false; }
+
     if (happinessLevel < 90) {
         happinessLevel += 10;
         std::cout << name << " is happier now.\n";

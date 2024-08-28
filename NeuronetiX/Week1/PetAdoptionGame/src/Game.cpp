@@ -29,13 +29,33 @@ Game::~Game() { delete pet; }
  * @brief Starts the main game loop, which continues until the user decides to end the game.
  */
 void Game::start() {
+    /* The Game is running now */
     while (isRunning) {
         showMenu();
         unsigned int choice;
         std::cin >> choice;
         handleChoice(choice);
+
+        /* Jump to the `while` to restart the game if no pet is created */
+        if (pet == nullptr) { continue; }
+
+        /* Finish the `while` loop if the critical state comes */
+        if (!isCritical()) {
+            std::cout << "Game Over. " << pet->getName() << "'s condition has reached a critical level.\n" ;
+            pet->checkStatus();
+            isRunning = false;
+        }
     }
 }
+
+/**
+* @fn bool isCritical() const
+* @brief Method to check if the pet's condition is critical
+* @details Constant member method.
+* @return true 
+* @return false 
+*/
+bool Game::isCritical() const { return ((pet->getSatiationStatus()) & (pet->getHappinessStatus())); }
 
 /**
  * @fn void showMenu() const

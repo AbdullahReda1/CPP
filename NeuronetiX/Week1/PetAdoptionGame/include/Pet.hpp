@@ -25,6 +25,8 @@ class Pet {
         std::string name;                    ///< Name of the pet
         unsigned int hungerLevel;            ///< Hunger level of the pet (0-90)
         unsigned int happinessLevel;         ///< Happiness level of the pet (0-90)
+        bool satiation;                      ///< Flag of zero satiation
+        bool happiness;                      ///< Flag of zero happiness
 
     public:
         /**
@@ -36,7 +38,7 @@ class Pet {
         /**
          * @fn string getName() const
          * @brief Gets the name of the pet.
-         * @details Constant member method.
+         * @details Constant member method (getter function).
          * @return The name of the pet.
          */
         std::string getName() const;
@@ -44,7 +46,7 @@ class Pet {
         /**
          * @fn int getHungerLevel() const
          * @brief Gets the hunger level of the pet.
-         * @details Constant member method.
+         * @details Constant member method (getter function).
          * @return The hunger level of the pet.
          */
         int getHungerLevel() const;
@@ -52,10 +54,28 @@ class Pet {
         /**
          * @fn int getHappinessLevel() const
          * @brief Gets the happiness level of the pet.
-         * @details Constant member method.
+         * @details Constant member method (getter function).
          * @return The happiness level of the pet.
          */
         int getHappinessLevel() const;
+
+        /**
+         * @fn bool getSatiationStatus() const
+         * @brief Get the Satiation Status object.
+         * @details Constant member method (getter function).
+         * @return true 
+         * @return false 
+         */
+        bool getSatiationStatus() const;
+
+        /**
+         * @fn bool getHappinessStatus() const
+         * @brief Get the Happiness Status object
+         * @details Constant member method (getter function).
+         * @return true 
+         * @return false 
+         */
+        bool getHappinessStatus() const;
 
         /**
          * @fn void feed()

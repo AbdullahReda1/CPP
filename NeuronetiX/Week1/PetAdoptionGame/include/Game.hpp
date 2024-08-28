@@ -43,6 +43,15 @@ class Game {
         void start();
 
         /**
+         * @fn bool isCritical() const
+         * @brief Method to check if the pet's condition is critical
+         * @details Constant member method.
+         * @return true 
+         * @return false 
+         */
+        bool isCritical() const;
+
+        /**
          * @fn void showMenu() const
          * @brief Displays the main menu to the user.
          * @details Constant member method.
