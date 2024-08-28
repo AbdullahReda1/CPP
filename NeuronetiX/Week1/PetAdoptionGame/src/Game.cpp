@@ -29,7 +29,12 @@ Game::~Game() { delete pet; }
  * @brief Starts the main game loop, which continues until the user decides to end the game.
  */
 void Game::start() {
-
+    while (isRunning) {
+        showMenu();
+        unsigned int choice;
+        std::cin >> choice;
+        handleChoice(choice);
+    }
 }
 
 /**
@@ -38,7 +43,12 @@ void Game::start() {
  * @details Constant member method.
  */
 void Game::showMenu() const {
-
+    std::cout << "1. Adopt Pet\n"
+              << "2. Feed Pet\n"
+              << "3. Play with Pet\n"
+              << "4. Check Status\n"
+              << "5. End Game\n"
+              << "Choose an option: ";
 }
 
 /**
@@ -47,7 +57,26 @@ void Game::showMenu() const {
  * @param choice The option selected by the user.
  */
 void Game::handleChoice(int choice) {
-
+    switch (choice) {
+        case 1:
+            adoptPet();
+                break;
+        case 2:
+            feedPet();
+                break;
+        case 3:
+            playWithPet();
+                break;
+        case 4:
+            checkStatus();
+                break;
+        case 5:
+            endGame();
+                break;
+        default:
+            std::cout << "Invalid choice. Please try again.\n";
+                break;
+    }
 }
 
 /**
@@ -55,7 +84,14 @@ void Game::handleChoice(int choice) {
  * @brief Allows the user to adopt a new pet by entering a name.
  */
 void Game::adoptPet() {
-
+    if (pet == nullptr) {
+        std::string name;
+        std::cout << "Enter the name of your pet: ";
+        std::cin >> name;
+        pet = new Pet(name);
+        std::cout << name << " has been adopted.\n";
+    }
+    else { std::cout << "You already have a pet!\n"; }
 }
 
 /**
@@ -63,7 +99,8 @@ void Game::adoptPet() {
  * @brief Increases the hunger level of the adopted pet.
  */
 void Game::feedPet() {
-
+    if (pet != nullptr) { pet->feed(); }
+    else                { std::cout << "You need to adopt a pet first.\n"; }
 }
 
 /**
@@ -71,7 +108,8 @@ void Game::feedPet() {
  * @brief Increases the happiness level of the adopted pet.
  */
 void Game::playWithPet() {
-
+    if (pet != nullptr) { pet->play(); }
+    else                { std::cout << "You need to adopt a pet first.\n"; }
 }
 
 /**
@@ -80,7 +118,8 @@ void Game::playWithPet() {
  * @details Constant member method.
  */
 void Game::checkStatus() const {
-
+    if (pet != nullptr) { pet->checkStatus(); }
+    else                { std::cout << "You need to adopt a pet first.\n"; }
 }
 
 /**
@@ -88,5 +127,9 @@ void Game::checkStatus() const {
  * @brief Ends the game and displays the final status of the pet.
  */
 void Game::endGame() {
-
+    if (pet != nullptr) {
+        std::cout << "Game Over. Your pet's final status:\n";
+        pet->checkStatus();
+    }
+    isRunning = false;
 }
