@@ -17,6 +17,8 @@ add_executable(PetAdoptionGame src/main.cpp src/Game.cpp src/Pet.cpp)
 # Link the target to the source files
 target_sources(PetAdoptionGame PRIVATE src/Game.cpp src/Pet.cpp)
 
+# Unit Testing Section
+
 # Google Test setup
 # Manually specify the path to the Google Test include directory and libraries
 set(GTEST_INCLUDE_DIRS "E:/ITI ES/GTest/Tool/googletest/googletest/include")
