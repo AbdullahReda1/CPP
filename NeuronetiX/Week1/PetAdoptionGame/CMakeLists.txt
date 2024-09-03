@@ -8,6 +8,9 @@ project(PetAdoptionGame VERSION 1.0)
 set(CMAKE_CXX_STANDARD 23)                  # Use C++23
 set(CMAKE_CXX_STANDARD_REQUIRED True)       # Ensure the C++ standard is required
 
+set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_BUILD_TYPE Debug)
+
 # Add the include directories (header files)
 include_directories(include)
 
@@ -35,4 +38,4 @@ enable_testing()
 add_executable(runUnitTests tests/unit_tests.cpp src/Game.cpp src/Pet.cpp)
 
 # Link the Google Test libraries
-target_link_libraries(runUnitTests ${GTEST_LIBS_DIR}/gtest.lib ${GTEST_LIBS_DIR}/gtest_main.lib)
+target_link_libraries(runUnitTests PRIVATE ${GTEST_LIBS_DIR}/gtest.lib ${GTEST_LIBS_DIR}/gtest_main.lib)
