@@ -45,6 +45,11 @@ CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
 
+# GTest
+*.sln
+*.vcxproj
+*.filters
+
 # Other
 .vscode/
 .cmake/
