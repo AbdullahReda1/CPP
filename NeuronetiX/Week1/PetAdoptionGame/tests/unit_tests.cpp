@@ -46,6 +46,6 @@ TEST(PetTest, CriticalCondition_Happiness) {
 
 // Entry point for running all tests
 int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
+    testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
