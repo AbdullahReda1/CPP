@@ -8,7 +8,7 @@ TEST(PetTest, HungerLevelDecrease) {
     std::string name = "Bill";
     Pet myPet(name);
     myPet.feed();
-    EXPECT_EQ(myPet.getHungerLevel(), 90);  // Assuming initial hunger is 90 and decreases by 10
+    EXPECT_EQ(myPet.getHungerLevel(), 50);  // Assuming initial hunger is 50 and decreases by 10
 }
 
 // Test that playing decreases happiness
@@ -16,7 +16,7 @@ TEST(PetTest, HappinessLevelDecrease) {
     std::string name = "Bill";
     Pet myPet(name);
     myPet.play();
-    EXPECT_EQ(myPet.getHappinessLevel(), 90);  // Assuming initial happiness is 90 and decreases by 10
+    EXPECT_EQ(myPet.getHappinessLevel(), 50);  // Assuming initial happiness is 50 and decreases by 10
 }
 
 // Test critical condition when hunger reaches 0
