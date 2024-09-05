@@ -21,21 +21,21 @@ add_executable(PetAdoptionGame src/main.cpp src/Game.cpp src/Pet.cpp)
 target_sources(PetAdoptionGame PRIVATE src/Game.cpp src/Pet.cpp)
 
 # Unit Testing Section
+# Include vcpkg for package management
+if(CMAKE_TOOLCHAIN_FILE)
+    message(STATUS "Using vcpkg toolchain from: ${CMAKE_TOOLCHAIN_FILE}")
+endif()
 
-# Google Test setup
-# Manually specify the path to the Google Test include directory and libraries
-set(GTEST_INCLUDE_DIRS "E:/ITI ES/GTest/Tool/googletest/googletest/include")
-set(GTEST_LIBS_DIR "E:/ITI ES/GTest/Tool/googletest/build/lib/Debug")
+# Fetch GoogleTest package from vcpkg
+find_package(GTest CONFIG REQUIRED)
 
-# Include directories and link libraries
-include_directories(${GTEST_INCLUDE_DIRS})
-link_directories(${GTEST_LIBS_DIR})
-
-# Enable testing for this project
-enable_testing()
-
-# Add the executable for running unit tests
 add_executable(runUnitTests tests/unit_tests.cpp src/Game.cpp src/Pet.cpp)
 
-# Link the Google Test libraries
-target_link_libraries(runUnitTests PRIVATE ${GTEST_LIBS_DIR}/gtest.lib ${GTEST_LIBS_DIR}/gtest_main.lib)
+# Link GoogleTest and GoogleMock
+target_link_libraries(runUnitTests PRIVATE GTest::gtest GTest::gtest_main)
+
+# Enable testing support
+enable_testing()
+
+# Add a test using CTest
+add_test(NAME UnitTests COMMAND runUnitTests)
