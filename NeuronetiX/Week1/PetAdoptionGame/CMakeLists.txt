@@ -21,6 +21,10 @@ target_sources(PetAdoptionGame PRIVATE src/Game.cpp src/Pet.cpp)
 # Fetch GoogleTest package from vcpkg
 find_package(GTest CONFIG REQUIRED)
 
+# Set output directory for all executables to be inside build/bin/
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# Create the unit tests executable
 add_executable(runUnitTests tests/unit_tests.cpp src/Game.cpp src/Pet.cpp)
 
 # Link GoogleTest and GoogleMock
