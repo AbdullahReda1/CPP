@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.30.2)
 
 # Define the project name and version number
 project(PetAdoptionGame VERSION 1.0)
-set(CMAKE_VERBOSE_MAKEFILE ON)
+
 # Specify the C++ standard to be used
 set(CMAKE_CXX_STANDARD 23)                  # Use C++23
 set(CMAKE_CXX_STANDARD_REQUIRED True)       # Ensure the C++ standard is required
