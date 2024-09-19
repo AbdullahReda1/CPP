@@ -1,5 +1,16 @@
+1.
+
 Clone the "Dear ImGui" Repository, 
 Open a terminal in your project folder and run the following command to clone Dear ImGui:
 
 
-git clone https://github.com/ocornut/imgui.git
+"git clone https://github.com/ocornut/imgui.git"
+
+------------------------------------------------------------------------------------------
+2.
+
+Download stb_image.h:
+You can download it from the official stb repository:
+
+
+Go to "https://github.com/nothings/stb".
