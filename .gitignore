@@ -65,3 +65,6 @@ NeuronetiX/Week1/PetAdoptionGame/doc/html/*
 
 # Build
 Debug
+
+# Third Party
+/NeuronetiX/Week1/PetAdoptionGame/third-party/image.jpeg
