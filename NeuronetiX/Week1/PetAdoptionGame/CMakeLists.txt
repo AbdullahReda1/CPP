@@ -53,9 +53,10 @@ include_directories(src include)
 # Add the core game logic source files
 add_library(GameLogic src/Game.cpp src/Pet.cpp)
 
-# Include directories for Dear ImGui (in third-party folder)
+# Include directories from third-party
 include_directories(third-party/imgui)
-include_directories(third-party/imgui/backends)  # Include backends folder for imgui_impl_glfw.h
+include_directories(third-party/imgui/backends)
+include_directories(third-party/stb_image.h)
 
 # Add ImGui source files
 set(IMGUI_SOURCES
