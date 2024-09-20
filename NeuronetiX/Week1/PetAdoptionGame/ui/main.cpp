@@ -3,13 +3,14 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include <GLFW/glfw3.h>
+
 #include <iostream>
 #include "../include/Pet.hpp"
 #include "../include/Game.hpp"
 
-// Definition of window size as macros
-#define WINDOW_WIDTH    1280
-#define WINDOW_HEIGHT   720
+// Define window size as macros
+#define WINDOW_WIDTH    700
+#define WINDOW_HEIGHT   400
 
 // Function to render the game UI
 void renderUI(Game& game, Pet& pet, bool& gameOver) {
@@ -83,15 +84,16 @@ int main() {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
-    ImGui::StyleColorsDark();
+    ImGui::StyleColorsClassic();  // Apply default style
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
-    // Create game and pet objects
-    Game game;
-    Pet pet("Beta");
+    bool petNameEntered = false;
+    char petName[128] = "Enter Pet Name";
+    Pet pet(petName);  // Initialize with default name
 
     bool gameOver = false;  // Track if the game is over
+    Game game;
 
     // Main loop
     while (!glfwWindowShouldClose(window)) {
@@ -103,12 +105,23 @@ int main() {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        // Render the game UI
-        renderUI(game, pet, gameOver);
+        // Ask for pet name if not entered
+        if (!petNameEntered) {
+            ImGui::Begin("Enter Pet Name");
+            ImGui::InputText("Pet Name", petName, IM_ARRAYSIZE(petName));
+            if (ImGui::Button("Start Game")) {
+                pet = Pet(petName);  // Set the entered name
+                petNameEntered = true;
+            }
+            ImGui::End();
+        } else {
+            // Render the game UI after pet name is entered
+            renderUI(game, pet, gameOver);
+        }
 
         // Rendering
         ImGui::Render();
-        int display_w = WINDOW_WIDTH, display_h = WINDOW_HEIGHT;
+        int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
         glViewport(0, 0, display_w, display_h);  // Handle window resize
         glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
