@@ -11,7 +11,7 @@ class A
     private:
         int privateDataA;
         
-        /// @brief Declare B as a "friend" class which make "its all members" accessable
+        /// @brief Declare B as a "friend" class which make "its all members" accessible
         friend class B;
 
         /// @brief Declare a non-member function as a "friend"
@@ -25,7 +25,7 @@ class A
 
         /// @brief Overloaded operator `<<` as a "friend" function
         /// @param os output streams
-        /// @param obj the class object bassed to print its private data
+        /// @param obj the class object passed to print its private data
         /// @return message "Private Data A: `privateDataA`" 
         friend ostream& operator <<(ostream& os, const A& obj) { os << "Private Data A: \t\t" << obj.privateDataA; return os; }
 };
