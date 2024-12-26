@@ -65,7 +65,8 @@ int main()
      * @brief   Dynamic Cast Example:
      * @details Demonstrates the usage of dynamic_cast for downcasting from a base class pointer to a derived class pointer.
      */
-    Base* basePtr = new Derived();
+    Base* basePtr = new Derived();      // creates a new Derived object and assigns its address to a Base pointer.
+    // "derivedPtr" will be `nullptr` if the dynamic cast fails, otherwise it will point to the derived object by downcasting the base pointer.
     Derived* derivedPtr = dynamic_cast <Derived*> (basePtr);
 
     if (derivedPtr)
@@ -78,5 +79,6 @@ int main()
         cout << "Dynamic cast failed." << endl;
     }
 
-    delete basePtr; // Clean up memory.
+    delete basePtr;             // Clean up memory.
+    derivedPtr = nullptr;       // Reset the pointer to nullptr to avoid dangling pointer.
 }
