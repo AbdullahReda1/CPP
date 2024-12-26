@@ -12,15 +12,15 @@ int main()
 {
     /* Declare and initialize a several auto variables */
 
-    auto autoBuffer0 = 'a';
-    auto autoBuffer1 = 2147483647;
-    auto autoBuffer2 = 2147483648;
-    auto autoBuffer3 = true;
-    auto autoBuffer4 = 100U;
-    auto autoBuffer5 = 3.0;
-    auto autoBuffer6 = 3.0f;
-    auto autoBuffer7 = pvfunction();
-    inline void autoBuffer8(void);
+    auto autoBuffer0 = 'a';                 // char
+    auto autoBuffer1 = 2147483647;          // int
+    auto autoBuffer2 = 2147483648;          // long
+    auto autoBuffer3 = true;                // bool
+    auto autoBuffer4 = 100U;                // unsigned int
+    auto autoBuffer5 = 3.0;                 // double
+    auto autoBuffer6 = 3.0f;                // float
+    auto autoBuffer7 = pvfunction();        // void pointer
+    inline void autoBuffer8(void);          // function pointer
 
 
     /* Print the size and type of each auto variable */
