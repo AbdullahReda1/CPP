@@ -1,0 +1,69 @@
+# Basic Functions
+- //TODO✓: Void Functions: Functions that do not return a value
+- //TODO✓: Value-Returning Functions: Functions that return a value after execution
+
+# Parameter Types
+## Functions with No Parameters
+- //TODO: Define and implement basic functions with no parameters
+
+## Functions with Parameters
+- //TODO: Functions with Parameters:
+  - //TODO: Pass by Value: Passing a copy of the variable
+  - //TODO: Pass by Reference: Passing the actual variable
+  - //TODO: Pass by Pointer: Passing the address of the variable
+
+# Overloaded Functions
+- //TODO: Define and implement functions with the same name but different parameters
+
+# Recursive Functions
+- //TODO: Define and implement functions that call themselves
+
+# Inline Functions
+- //TODO: Explore functions that are expanded inline for efficiency
+
+# Lambda Functions
+- //TODO: Use lambda functions for concise function expressions
+
+# Template Functions
+- //TODO: Define and implement functions that can operate with any data type
+
+# Member Functions
+- //TODO: Implement functions that belong to a class
+
+# Constructors and Destructors
+- //TODO: Constructors: Special member functions for object initialization
+- //TODO: Destructors: Special member functions for cleanup before object deletion
+
+# Getters and Setters
+- //TODO: Implement getter and setter functions to access private variables
+
+# Friend Functions
+- //TODO: Define friend functions for accessing private/protected members of a class
+
+# Operator Overloading Functions
+- //TODO: Implement functions to overload standard operators for custom types
+
+# Default and Variadic Functions
+## Default Arguments
+- //TODO: Define functions with default parameter values
+
+## Variadic Functions
+- //TODO: Explore functions that accept a variable number of arguments
+
+# Specialized Functions
+- //TODO: Define functions specifically tailored for particular data types or scenarios
+
+# Callback Functions
+- //TODO: Implement functions that are passed as arguments to other functions
+
+# Virtual Functions
+- //TODO: Use virtual functions for polymorphism in class hierarchies
+
+# Pure Virtual Functions
+- //TODO: Define pure virtual functions in abstract classes
+
+# Mathematical and Utility Functions
+- //TODO: Explore common mathematical and utility functions in programming
+
+# Error-Handling Functions
+- //TODO: Implement functions dedicated to error handling and exceptions
