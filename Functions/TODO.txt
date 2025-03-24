@@ -19,7 +19,7 @@
 - //TODO: Define and implement functions that call themselves
 
 # Inline Functions
-- //TODO: Explore functions that are expanded inline for efficiency
+- //TODO✓: Explore functions that are expanded inline for efficiency
 
 # Lambda Functions
 - //TODO: Use lambda functions for concise function expressions
