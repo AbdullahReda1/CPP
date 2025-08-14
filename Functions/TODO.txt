@@ -1,10 +1,10 @@
 # Basic Functions
-- //TODO✓: Void Functions: Functions that do not return a value
-- //TODO✓: Value-Returning Functions: Functions that return a value after execution
+- //TODO ✓: Void Functions: Functions that do not return a value
+- //TODO ✓: Value-Returning Functions: Functions that return a value after execution
 
 # Parameter Types
 ## Functions with No Parameters
-- //TODO: Define and implement basic functions with no parameters
+- //TODO ✓: Define and implement basic functions with no parameters
 
 ## Functions with Parameters
 - //TODO: Functions with Parameters:
@@ -19,7 +19,7 @@
 - //TODO: Define and implement functions that call themselves
 
 # Inline Functions
-- //TODO✓: Explore functions that are expanded inline for efficiency
+- //TODO ✓: Explore functions that are expanded inline for efficiency
 
 # Lambda Functions
 - //TODO: Use lambda functions for concise function expressions
