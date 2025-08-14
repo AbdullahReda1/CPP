@@ -7,10 +7,10 @@
 - //TODO ✓: Define and implement basic functions with no parameters
 
 ## Functions with Parameters
-- //TODO: Functions with Parameters:
-  - //TODO: Pass by Value: Passing a copy of the variable
-  - //TODO: Pass by Reference: Passing the actual variable
-  - //TODO: Pass by Pointer: Passing the address of the variable
+- //TODO ✓: Functions with Parameters:
+  - //TODO ✓: Pass by Value: Passing a copy of the variable
+  - //TODO ✓: Pass by Reference: Passing the actual variable
+  - //TODO ✓: Pass by Pointer: Passing the address of the variable
 
 # Overloaded Functions
 - //TODO: Define and implement functions with the same name but different parameters
