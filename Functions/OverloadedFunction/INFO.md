@@ -77,3 +77,79 @@ This allows the linker to distinguish between overloaded functions.
 
 * After compilation, the **linker** resolves the function calls using these mangled names.
 * Each overload has a unique memory address, so calls are properly matched.
+
+## 🚫 Restrictions on Function Overloading (C++ only)
+
+Although C++ allows function overloading, there are **specific** cases where overloading is  **not permitted** , even if the functions appear different at first glance.
+
+### ❌ You cannot overload functions that differ only in:
+
+1. **Return Type**
+
+   ```cpp
+   int f();
+   float f();   // ❌ Error: differs only by return type
+   ```
+2. **Static vs Non-static Member Function**
+
+   ```cpp
+   struct A {
+       static int f();
+       int f();   // ❌ Error: static and non-static with same signature
+   };
+   ```
+3. **Static Template Member Function vs Non-static Template Member Function**
+
+   (with identical parameter lists).
+4. **Typedef Names Representing the Same Type**
+
+   ```cpp
+   typedef int I;
+   void f(float, int);
+   void f(float, I);   // ❌ Error: typedef does not create a new type
+   ```
+5. **Array vs Pointer Parameters**
+
+   ```cpp
+   void f(char*);
+   void f(char[10]);   // ❌ Error: treated as the same function
+   ```
+
+   ⚠️ Note: Except for the  **first dimension** , array sizes are significant:
+
+   ```cpp
+   void g(char(*)[20]);   // pointer to array of 20 chars
+   void g(char(*)[40]);   // ✅ Different
+   ```
+6. **Function Type vs Pointer-to-Function**
+
+   ```cpp
+   void f(int(float));
+   void f(int (*)(float));   // ❌ Equivalent
+   ```
+7. **cv-qualifiers (`const`, `volatile`, `restrict`) at the outermost level**
+
+   ```cpp
+   int f(int);
+   int f(const int);      // ❌ Same
+   int f(volatile int);   // ❌ Same
+   ```
+
+   ✅ But inside a pointer/reference, qualifiers **do** make it different:
+
+   ```cpp
+   void g(int*);
+   void g(const int*);      // ✅ Different
+   void g(volatile int*);   // ✅ Different
+   void g(float&);          // ✅ Different
+   void g(const float&);    // ✅ Different
+   ```
+8. **Default Arguments**
+
+   ```cpp
+   void f(int);
+   void f(int i = 10);   // ❌ Same function, just different defaults
+   ```
+9. **Extern "C" Linkage**
+
+   Multiple functions declared with `extern "C"` and the same name are  **not overloadable** , even if parameter lists differ.
