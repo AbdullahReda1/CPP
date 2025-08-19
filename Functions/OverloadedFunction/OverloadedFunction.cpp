@@ -62,3 +62,116 @@ How to choose defaults (practical starting points)
     Distance threshold: cosine similarity threshold around 0.5–0.6 for cosine (depending on embedding norm); 
     Euclidean threshold around 0.6–1.0 normalized per model
 */
+
+#include <vector>
+#include <string>
+#include <iostream>
+
+// محاكاة بسيطة بدون أي اعتماد على OpenCV
+struct Rect {
+    int x, y, w, h;
+    Rect(int _x=0,int _y=0,int _w=0,int _h=0) : x(_x), y(_y), w(_w), h(_h) {}
+};
+
+struct FaceDetectorOutput {
+    std::vector<Rect> faces;      // مواقع الوجوه المكتشفة
+    // في المحاكاة، لا نحتاج crops فعلياً
+};
+
+struct RecognizerModel {
+    std::string name;           // اسم النموذج/الخوارزمية
+    int embedding_dim;          // أبعاد embedding (إن وجدت)
+};
+
+struct RecognizeInput {
+    // إطار افتراضي كصفوف مقاسات
+    int frame_id;                 // معرف الإطار (مثلاً Frame index)
+    FaceDetectorOutput detections; // نتائج الكشف
+    RecognizerModel model;        // النموذج المستخدم
+    double threshold;             // حد الثقة
+    std::string database_path;      // مصدر البيانات المرجعية (لذكاء المحاكاة)
+    bool use_gpu;                   // تفعيل GPU (محاكاة فقط)
+};
+
+// النتيجة العامة
+struct RecognizeResult {
+    std::vector<int> labels;        // معرّفات الأشخاص المعتمدين
+    std::vector<double> confidences;// ثقة/مصداقية
+};
+
+// Overload 1: التوقيع الأكثر وضوحاً
+RecognizeResult simulateRecognize(const RecognizeInput& input) {
+    RecognizeResult res;
+    // محاكاة: إذا وجدت وجوه، أعطِ كل وجه ترميزاً افتراضياً
+    int base_label = 0;
+    for (size_t i = 0; i < input.detections.faces.size(); ++i) {
+        int label = static_cast<int>((base_label + i) % 5); // 5 أشخاص افتراضيين
+        double conf = 0.6 + 0.08 * static_cast<double>(i);
+        res.labels.push_back(label);
+        res.confidences.push_back(conf);
+    }
+    // إذا لم توجد وجوه، اعطِ لا شيء
+    if (input.detections.faces.empty()) {
+        // لا شيء ليرجع
+    }
+    return res;
+}
+
+// Overload 2: تقبل frame_id فقط مع detections ونموذج افتراضي
+RecognizeResult simulateRecognize(int frame_id,
+                                  const FaceDetectorOutput& detections,
+                                  const RecognizerModel& model,
+                                  double threshold = 0.5) {
+    RecognizeInput in;
+    in.frame_id = frame_id;
+    in.detections = detections;
+    in.model = model;
+    in.threshold = threshold;
+    in.database_path = "";
+    in.use_gpu = false;
+    return simulateRecognize(in);
+}
+
+// Overload 3: بدون مدخلات حقيقية، ترجع نتيجة افتراضية بسيطة
+RecognizeResult simulateRecognize() {
+    RecognizeResult res;
+    // مثال افتراضي: وجه واحد، تعرف عليه كـ Person 0
+    res.labels.push_back(0);
+    res.confidences.push_back(0.75);
+    return res;
+}
+
+int main() {
+    // إعداد افتراضي للكشف
+    FaceDetectorOutput det;
+    det.faces.push_back(Rect(10, 20, 100, 100));
+    det.faces.push_back(Rect(150, 60, 90, 90));
+
+    RecognizerModel model;
+    model.name = "LBPH-Sim";
+    model.embedding_dim = 0;
+
+    RecognizeInput in;
+    in.frame_id = 1;
+    in.detections = det;
+    in.model = model;
+    in.threshold = 0.5;
+    in.database_path = "sim_db.json";
+    in.use_gpu = false;
+
+    // استخدام overload 1
+    RecognizeResult r1 = simulateRecognize(in);
+    for (size_t i = 0; i < r1.labels.size(); ++i) {
+        std::cout << "Face " << i << ": "
+                  << (r1.labels[i] >= 0 ? "Person " + std::to_string(r1.labels[i]) : "Unknown")
+                  << ", conf=" << r1.confidences[i] << "\n";
+    }
+
+    // استخدام overload 2
+    RecognizeResult r2 = simulateRecognize(2, det, model, 0.4);
+    // الاستخدام نفسه كما السابق
+
+    // استخدام overload 3
+    RecognizeResult r3 = simulateRecognize();
+    return 0;
+}
