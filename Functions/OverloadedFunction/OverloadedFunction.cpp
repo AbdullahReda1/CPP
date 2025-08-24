@@ -2,6 +2,38 @@
 using namespace std;
 
 
+// FaceRecognition with only detector type
+void FaceRecognition(string detectorType); // e.g., "Haar", "DNN", "MTCNN"
+
+// FaceRecognition with detector type and scale factor
+void FaceRecognition(string detectorType, double scaleFactor); // scaleFactor: 1.01 - 1.5
+
+// FaceRecognition with detector type, scale factor, and minNeighbors
+void FaceRecognition(string detectorType, double scaleFactor, int minNeighbors); // minNeighbors: 3 - 10
+
+// FaceRecognition with detector type, scale factor, minNeighbors, and minFaceSize
+void FaceRecognition(string detectorType, double scaleFactor, int minNeighbors, int minFaceSize); // minFaceSize: 20 - 100
+
+// FaceRecognition with all parameters
+void FaceRecognition(string detectorType, double scaleFactor, int minNeighbors, int minFaceSize, int cropSize); // cropSize: 112, 224
+
+
+int main() {
+    // Test calls to overloaded FaceRecognition functions
+    FaceRecognition("Haar");
+
+    FaceRecognition("Haar", 1.01);
+
+    FaceRecognition("Haar", 1.01, 3);
+
+    FaceRecognition("Haar", 1.01, 3, 25);
+
+    FaceRecognition("Haar", 1.01, 3, 25, 112);
+
+    return 0;
+}
+
+
 // Function Overloading Example: FaceRecognition with varying parameters
 void FaceRecognition(
     string detectorType         //* e.g., "Haar", "DNN", "MTCNN"
@@ -60,19 +92,4 @@ void FaceRecognition(
     cout << "  minNeighbors: " << minNeighbors << endl;
     cout << "  minFaceSize: " << minFaceSize << endl;
     cout << "  cropSize: " << cropSize << endl;
-}
-
-int main() {
-    // Test calls to overloaded FaceRecognition functions
-    FaceRecognition("Haar");
-
-    FaceRecognition("Haar", 1.01);
-
-    FaceRecognition("Haar", 1.01, 3);
-
-    FaceRecognition("Haar", 1.01, 3, 25);
-
-    FaceRecognition("Haar", 1.01, 3, 25, 112);
-
-    return 0;
 }
