@@ -25,6 +25,7 @@ class Data {
 };
 
 // Derived Class (inherited)
+// public inheritance makes private CryptoMSG member into main function accessible couse it is public in the derived class.
 class BankData: public Data {
     public:
         void ProtectivIDFunc() { cout << ProtectivID << endl; }
