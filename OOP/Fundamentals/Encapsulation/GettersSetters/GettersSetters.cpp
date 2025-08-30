@@ -50,10 +50,8 @@ class BankData : public Data {
         string getCryptoMSG (void){
             if(checkPassword (inputPassword()))
                 return (Data::getCryptoMSG());
-            else {
-                //string STR = "NOT CORRECT";
+            else 
                 return "NOT CORRECT";
-            }
         }
 };
 
