@@ -59,12 +59,16 @@ class BankData : public Data {
 int main() {
     BankData b;
 
+    // NOte: when using getters we use cout to print the returned value.
+    // Set and get public data
     b.setPublicData(5.06);
-    b.getPublicData();
+    cout << "Public Data: " << b.getPublicData() << endl;
 
-    b.getProtectivID();
+    // Get protected ID
+    cout << "ProtectivID: " << b.getProtectivID() << endl;
 
-    b.getCryptoMSG();
+    // Try to get CryptoMSG (requires password)
+    cout << "CryptoMSG: " << b.getCryptoMSG() << endl;
 
     return 0;
 }
