@@ -67,3 +67,6 @@
 
 # Error-Handling Functions
 - //TODO: Implement functions dedicated to error handling and exceptions
+
+# Overriding Functions
+- //TODO: Define functions in derived classes that override base class functions
