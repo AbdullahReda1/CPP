@@ -57,10 +57,10 @@
 - //TODO: Implement functions that are passed as arguments to other functions
 
 # Virtual Functions
-- //TODO: Use virtual functions for polymorphism in class hierarchies
+- //TODO ✓: Use virtual functions for polymorphism in class hierarchies
 
 # Pure Virtual Functions
-- //TODO: Define pure virtual functions in abstract classes
+- //TODO ✓: Define pure virtual functions in abstract classes
 
 # Mathematical and Utility Functions
 - //TODO: Explore common mathematical and utility functions in programming
@@ -69,4 +69,4 @@
 - //TODO: Implement functions dedicated to error handling and exceptions
 
 # Overriding Functions
-- //TODO: Define functions in derived classes that override base class functions
+- //TODO ✓: Define functions in derived classes that override base class functions
