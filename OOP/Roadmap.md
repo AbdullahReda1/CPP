@@ -13,8 +13,7 @@ This roadmap provides a **step-by-step guide** to mastering  **Object-Oriented P
   * Data hiding (`private`, `protected`, `public`)
   * Getters and setters
 * **Abstraction**
-  * Abstract classes
-  * Pure virtual functions
+  * Abstract classes & Pure virtual functions
 * **Inheritance**
   * Single and multiple inheritance
   * `virtual` inheritance
