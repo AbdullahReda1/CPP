@@ -15,11 +15,20 @@
 # Overloaded Functions
 - //TODO ✓: Define and implement functions with the same name but different parameters
 
-# Recursive Functions
-- //TODO: Define and implement functions that call themselves
-
 # Inline Functions
 - //TODO ✓: Explore functions that are expanded inline for efficiency
+
+# Virtual Functions
+- //TODO ✓: Use virtual functions for polymorphism in class hierarchies
+
+# Pure Virtual Functions
+- //TODO ✓: Define pure virtual functions in abstract classes
+
+# Overriding Functions
+- //TODO ✓: Define functions in derived classes that override base class functions
+
+# Recursive Functions
+- //TODO: Define and implement functions that call themselves
 
 # Lambda Functions
 - //TODO: Use lambda functions for concise function expressions
@@ -56,17 +65,8 @@
 # Callback Functions
 - //TODO: Implement functions that are passed as arguments to other functions
 
-# Virtual Functions
-- //TODO ✓: Use virtual functions for polymorphism in class hierarchies
-
-# Pure Virtual Functions
-- //TODO ✓: Define pure virtual functions in abstract classes
-
 # Mathematical and Utility Functions
 - //TODO: Explore common mathematical and utility functions in programming
 
 # Error-Handling Functions
 - //TODO: Implement functions dedicated to error handling and exceptions
-
-# Overriding Functions
-- //TODO ✓: Define functions in derived classes that override base class functions
