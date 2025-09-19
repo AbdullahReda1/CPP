@@ -58,6 +58,18 @@ class Derived2 : protected Base {
 };
 
 /* ===========================================================
+   *Multi-level Inheritance from Derived2
+   =========================================================== */
+class SubDerived : public Derived2 {
+public:
+    void ShowAccess() {
+        // AccessPrivate();    ❌ still not inherited
+        AccessProtected();     // ✅ still accessible (protected stays protected)
+        AccessPublic();        // ✅ accessible but now treated as protected
+    }
+};
+
+/* ===========================================================
    *Private Inheritance
    =========================================================== */
 class Derived3 : private Base {
@@ -76,6 +88,7 @@ class Derived3 : private Base {
 int main() {
     Derived1 d1;
     Derived2 d2;
+    SubDerived sd;
     Derived3 d3;
 
     cout << "\n--- Public Inheritance ---\n";
@@ -90,7 +103,13 @@ int main() {
 
     // d2.AccessPublic();     ❌ now protected, not callable directly
 
-    d2.ShowAccess();         // ✅ accessible through member function
+    d2.ShowAccess();         // ✅ accessible through member function works (inside Derived2)
+
+    cout << "\n--- Multi-level Inheritance from Protected ---\n";
+
+    sd.ShowAccess();        // ✅ works (inside SubDerived)
+    
+    // sd.AccessPublic();    ❌ still protected, can’t call from main
 
     cout << "\n--- Private Inheritance ---\n";
 
