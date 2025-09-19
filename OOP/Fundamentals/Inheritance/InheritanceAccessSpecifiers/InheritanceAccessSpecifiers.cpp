@@ -19,17 +19,29 @@ class Base {
 
 // public access inheritance
 class Derived1 : public Base {
-
+    public:
+        void ShowAccess() {
+            AccessPublic();
+            AccessProtected();
+        }
 };
 
 // protected access inheritance
 class Derived2 : protected Base {
-
+    public:
+        void ShowAccess() {
+            AccessPublic();
+            AccessProtected();
+        }
 };
 
 // private access inheritance
 class Derived3 : private Base {
-
+    public:
+        void ShowAccess() {
+            AccessPublic();
+            AccessProtected();
+        }
 };
 
 
@@ -38,17 +50,7 @@ int main() {
     Derived2 d2;
     Derived3 d3;
 
-    d1.AccessPublic();
-    d1.AccessProtected();
-    d1.Accessprivate();
-    
-    d2.AccessPublic();
-    d2.AccessProtected();
-    d2.Accessprivate();
 
-    d3.AccessPublic();
-    d3.AccessProtected();
-    d3.Accessprivate();
 
     return 0;
 }
