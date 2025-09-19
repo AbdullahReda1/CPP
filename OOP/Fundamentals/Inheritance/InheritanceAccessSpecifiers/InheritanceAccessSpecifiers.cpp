@@ -139,3 +139,21 @@ int main() {
     protected      | protected          | protected             | private
     private        | not inherited      | not inherited         | not inherited
     =========================================================== */
+
+/* ===========================================================
+Explanation of Multi-level Inheritance from Protected:
+-----------------------------------------------------------
+- In `Derived2` (protected inheritance):
+    Base::public   -> protected
+    Base::protected -> protected
+    Base::private   -> not inherited
+
+- In `SubDerived` (further public inheritance from Derived2):
+    Base::public   -> stays protected
+    Base::protected -> stays protected
+    Base::private   -> not inherited
+
+So, even though SubDerived inherits "publicly" from Derived2,
+the Base's public members are already transformed to protected
+in Derived2, and remain protected down the chain.
+=========================================================== */
