@@ -18,11 +18,11 @@ the **compiler automatically provides it** whenever you call a non-static method
 
 | Concept                          | Description                                                                                    |
 | -------------------------------- | ---------------------------------------------------------------------------------------------- |
-| **What it is**             | A pointer (e.g.,`ClassName* this`) automatically passed to every non-static member function. |
-| **What it points to**      | The memory address of the**object instance**that invoked the function.                   |
-| **Where it exists**        | In the**stack frame**of the member function.                                             |
-| **When it doesn’t exist** | Inside static, global, or friend functions (no object context).                                |
-| **Type**                   | `ClassName*`(pointer to the current object).                                                 |
+| **What it is**                   | A pointer (e.g.,`ClassName* this`) automatically passed to every non-static member function.   |
+| **What it points to**            | The memory address of the**object instance**that invoked the function.                         |
+| **Where it exists**              | In the**stack frame**of the member function.                                                   |
+| **When it doesn’t exist**        | Inside static, global, or friend functions (no object context).                                |
+| **Type**                         | `ClassName*`(pointer to the current object).                                                   |
 
 ---
 
@@ -297,9 +297,9 @@ Stack frame of setLength():
 
 | Context                                        | Reason                              |
 | ---------------------------------------------- | ----------------------------------- |
-| **Static functions**                     | No instance context → no `this`. |
-| **Global or friend functions**           | Not tied to any object.             |
-| **Base constructor initialization list** | Object not fully built yet.         |
+| **Static functions**                           | No instance context → no `this`.    |
+| **Global or friend functions**                 | Not tied to any object.             |
+| **Base constructor initialization list**       | Object not fully built yet.         |
 
 ---
 
@@ -327,13 +327,13 @@ MOV [RDI+offset], <value>
 
 | Purpose              | Description              | Example                  |
 | -------------------- | ------------------------ | ------------------------ |
-| Disambiguation       | Resolve naming conflicts | `this->value = value;` |
-| Chaining             | Return current object    | `return *this;`        |
-| Communication        | Pass self to others      | `obj.process(this);`   |
-| Operator Overloading | LHS object reference     | `this->x + v.x;`       |
-| Safety               | Prevent self-assignment  | `if (this == &obj)`    |
-| Polymorphism         | Virtual dispatch         | `this->show();`        |
-| Memory Context       | Current object pointer   | `cout << this;`        |
+| Disambiguation       | Resolve naming conflicts | `this->value = value;`   |
+| Chaining             | Return current object    | `return *this;`          |
+| Communication        | Pass self to others      | `obj.process(this);`     |
+| Operator Overloading | LHS object reference     | `this->x + v.x;`         |
+| Safety               | Prevent self-assignment  | `if (this == &obj)`      |
+| Polymorphism         | Virtual dispatch         | `this->show();`          |
+| Memory Context       | Current object pointer   | `cout << this;`          |
 
 ---
 

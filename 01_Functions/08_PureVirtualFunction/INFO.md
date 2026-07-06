@@ -88,9 +88,9 @@ Each derived class (Circle, Rectangle, Triangle) is like a contractor who **foll
 
 | Aspect         | Virtual Function                            | Pure Virtual Function                |
 | -------------- | ------------------------------------------- | ------------------------------------ |
-| Implementation | May have default implementation             | Has no implementation (`= 0`)      |
+| Implementation | May have default implementation             | Has no implementation (`= 0`)        |
 | Class Type     | Class can be instantiated                   | Class becomes abstract               |
-| Override       | Derived class may override                  | Derived class**must**override  |
+| Override       | Derived class may override                  | Derived class**must**override        |
 | Purpose        | Provides default behavior but allows change | Enforces contract, acts as interface |
 
 ---

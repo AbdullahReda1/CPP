@@ -93,13 +93,13 @@ When a class contains a  **virtual function** :
 
 | Feature                  | Compile-time Polymorphism                  | Run-time Polymorphism                          |
 | ------------------------ | ------------------------------------------ | ---------------------------------------------- |
-| **Also Called**    | Static Binding / Early Binding             | Dynamic Binding / Late Binding                 |
-| **Resolution**     | At compile time                            | At runtime                                     |
-| **Mechanisms**     | Function Overloading, Operator Overloading | Virtual Functions, Function Overriding, VTable |
-| **Decision Maker** | Compiler                                   | VTable and vptr at runtime                     |
-| **Speed**          | Faster (no runtime lookup)                 | Slower (small overhead due to vtable lookup)   |
-| **Flexibility**    | Less flexible                              | More flexible                                  |
-| **Keywords**       | None                                       | virtual, override, final, abstract             |
+| **Also Called**          | Static Binding / Early Binding             | Dynamic Binding / Late Binding                 |
+| **Resolution**           | At compile time                            | At runtime                                     |
+| **Mechanisms**           | Function Overloading, Operator Overloading | Virtual Functions, Function Overriding, VTable |
+| **Decision Maker**       | Compiler                                   | VTable and vptr at runtime                     |
+| **Speed**                | Faster (no runtime lookup)                 | Slower (small overhead due to vtable lookup)   |
+| **Flexibility**          | Less flexible                              | More flexible                                  |
+| **Keywords**             | None                                       | virtual, override, final, abstract             |
 
 ---
 

@@ -35,11 +35,11 @@ The **access specifier** (`public`, `protected`, `private`) defines how base cla
 
 ### Rules of Accessibility
 
-| Inheritance Type    | Base `public`→ | Base `protected`→ | Base `private`→ |
+| Inheritance Type    | Base `public`→    | Base `protected`→    | Base `private`→    |
 | ------------------- | ----------------- | -------------------- | ------------------ |
-| **public**    | public            | protected            | not accessible     |
-| **protected** | protected         | protected            | not accessible     |
-| **private**   | private           | private              | not accessible     |
+| **public**          | public            | protected            | not accessible     |
+| **protected**       | protected         | protected            | not accessible     |
+| **private**         | private           | private              | not accessible     |
 
 ➡️ **Private members of base are never directly accessible in derived classes.**
 
