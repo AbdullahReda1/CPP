@@ -20,3 +20,35 @@ namespace rclcpp
 } // namespace rclcpp
 
 #define RCLCPP_INFO(logger, fmt, ...) printf("[INFO][%s]" fmt "\n", (logger).name_.c_str(), ##__VA_ARGS__)
+
+#define RCLCPP_DEBUG(logger, fmt, ...) printf("[DEBUG][%s]" fmt "\n", (logger).name.c_str(), ##__VA__ARGS__)
+
+//
+
+//
+
+/*******************************************************/
+
+namespace rclcpp { struct NodeOptions {}; };
+
+namespace rclcpp {
+    enum class ParameterType {
+        PARAMETER_NOT_SET,
+        PARAMETER_BOOLEAN,
+        PARAMETER_DOUBLE,
+        PARAMETER_INTEGER
+    };
+
+    class Parameter {
+        private:
+            std::string Name_;
+            std::string string_parameter;
+            double double_var{};
+            int64_t interger_var{};
+            bool Boolian_var{};
+            ParameterType type_;
+        
+        public:
+            
+    };
+};
