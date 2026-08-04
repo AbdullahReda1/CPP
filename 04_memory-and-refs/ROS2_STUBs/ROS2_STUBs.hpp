@@ -36,12 +36,13 @@ namespace rclcpp {
         PARAMETER_NOT_SET,
         PARAMETER_BOOLEAN,
         PARAMETER_DOUBLE,
-        PARAMETER_INTEGER
+        PARAMETER_INTEGER,
+        PARAMETER_STRING
     };
 
     class Parameter {
         private:
-            std::string Name_;
+            std::string name_;
             std::string string_parameter;
             double double_var{};
             int64_t interger_var{};
@@ -49,6 +50,10 @@ namespace rclcpp {
             ParameterType type_;
         
         public:
-            
+            Parameter(const std::string & name, const std::string & value) 
+            : name_(name), string_parameter(value), type_(ParameterType::PARAMETER_STRING) {}
+
+            Parameter(const std::string & name, double value)
+            : name_(name), double_var(value), type_(ParameterType::PARAMETER_DOUBLE) {}
     };
 };
