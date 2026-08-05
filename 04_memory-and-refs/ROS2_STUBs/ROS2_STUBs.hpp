@@ -29,7 +29,7 @@ namespace rclcpp
 
 /*******************************************************/
 
-namespace rclcpp { struct NodeOptions {}; };
+namespace rclcpp { struct NodeOptions {}; }
 
 namespace rclcpp {
     enum class ParameterType {
@@ -56,4 +56,95 @@ namespace rclcpp {
             Parameter(const std::string & name, double value)
             : name_(name), double_var(value), type_(ParameterType::PARAMETER_DOUBLE) {}
     };
+}
+
+/***************************************************************/
+
+namespace rclcpp {
+    struct TimerBase {
+        using SharedPtr = std::shared_ptr<TimerBase>;
+
+        virtual ~TimerBase() = default;
+    };
+}
+
+/*******************************/
+
+namespace rclcpp {
+    struct Qos {
+        explicit Qos(size_t depth = 10) : _depth(depth) {};
+        size_t _depth;
+    };
+
+    struct SystemDefaultsQoS : public Qos { SystemDefaultsQoS() : Qos(10) {} };
+}
+
+/*******************************/
+
+namespace rclcpp {
+    namespace node_interfaces {
+        struct OnSetParametersCallbackHandle {
+            using SharedPtr = std::shared_ptr<OnSetParametersCallbackHandle>;
+        };
+
+        struct PostSetParametersCallbackHandle {
+            using SharedPtr = std::shared_ptr<PostSetParametersCallbackHandle>;
+        };
+        
+    }
+}
+
+/********************************/
+
+namespace rclcpp {
+    template<typename MsgType>
+    class Publisher{
+        public:
+            using SharedPtr = std::shared_ptr<Publisher<MsgType>>;
+            void Publish(const MsgType & msg) { (void)msg; }
+    };
+}
+
+namespace rclcpp {
+    template<typename MsgType>
+    class Subscription{
+        public:
+            using SharedPtr = std::shared_ptr<Subscription<MsgType>>;
+    };
+}
+
+/********************************/
+
+enum rcl_service_introspection_state_t
+{
+    RCL_SERVICE_INTROSPECTION_OFF,       // constant — introspection disabled
+    RCL_SERVICE_INTROSPECTION_METADATA,  // constant — log timing and request IDs only
+    RCL_SERVICE_INTROSPECTION_CONTENTS,  // constant — log full request and response data
 };
+
+namespace rclcpp {
+    template<typename SrvType>
+    class Service {
+        public:
+            using SharedPtr = std::shared_ptr<Service<SrvType>>;
+            void configure_introspection(void * clock, SystemDefaultsQoS qos, rcl_service_introspection_state_t state) {
+                (void) clock;
+                (void) qos;
+                (void) state;
+            }
+    };
+} // namespace rclcpp
+
+
+namespace rclcpp {
+    template<typename SrvType>
+    class Client {
+        public:
+            using SharedPtr = std::shared_ptr<Client<SrvType>>;
+            struct SharedFuture {
+                
+            };
+    };
+} // namespace rclcpp
+
+
